@@ -1,0 +1,30 @@
+<style>
+  #parent {
+      display: table; 
+      width: 400px;
+  }
+  
+  .row-header {
+      display: table-cell; 
+      background: red;
+      width: 100px;    
+  }
+  
+  .row {
+      display: table; 
+      background: blue; 
+      width: 100px;
+      height: 100px; 
+      margin-bottom: 5px;
+  }
+  .row:last-child {
+      margin-bottom: 0;    
+  }
+</style>
+<div id="parent">
+    <span class="row-header">This stretches automatically</span>
+    <span class="row">1</span>
+    <span class="row">1</span>
+</div>
+
+<button onclick="document.getElementById('parent').innerHTML += '<span class=\'row\'>1</span>'">Insert row without modifying CSS</button>
