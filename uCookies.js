@@ -7,9 +7,9 @@ function setCookie(name, value) {
 
 function getCookie(name) {
 	name += '=';
-    var cookies = document.cookie.split(';')
+    	var cookies = document.cookie.split(';')
 	for(var i=0; i < cookies.length; i++) {
-      if (cookies[i].trim().indexOf(name)==0) return cookies[i].trim().substring(name.length);      
+      		if (cookies[i].trim().indexOf(name)==0) return cookies[i].trim().substring(name.length);      
 	}
 }
 
