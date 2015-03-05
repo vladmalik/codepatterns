@@ -15,7 +15,7 @@ var atTargetY = setInterval(function() {
 	scrollY = $(document).scrollTop(); // refresh scroll position
 
 	// Listen for first target (repeat this block with target[1]... for other targets)
-	if(	targetY[0]!=0 && scrollY + windowHeight-targetSensitivity > 	targetY[0]) {
+	if(targetY[0]!=0 && scrollY + windowHeight-targetSensitivity > 	targetY[0]) {
 	  // doStuff();
 	  isActivated[0]=1;
 	}
