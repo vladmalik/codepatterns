@@ -1,0 +1,11 @@
+	<script>
+	document.cookie="arrivalDateTime=" + new Date() + "; expires=Thu, 18 Dec 2999 12:00:00 UTC; path=/";
+	</script>	
+	
+	...
+	
+	<script>
+	var now = new Date();
+	var arrivalDateTime = new Date(getCookie(arrivalDateTime));
+	var minutesElapsed = Math.abs(now - arrivalDateTime)/1000/60;
+	</script>
