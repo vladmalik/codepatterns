@@ -1,0 +1,60 @@
+	<head>
+		<meta name="description" content="">
+		<meta charset="utf-8">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	</head>
+	
+	<style>
+		
+		body {
+			margin:0; padding:0;
+		}
+	
+		#modal {
+			background: rgba(0,0,0,0.6);
+			position: fixed;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			display: none;
+			z-index: 999;
+		}
+		
+		#modal-content {
+			background: white;
+			border-radius: 20px;
+			height: 50%;
+			width: 50%;
+			margin: 15% auto 0 auto;
+			position: relative;
+		}
+		
+		#modal-close {
+			position: absolute;
+			width: 100%;
+			text-align: center;
+			bottom: 20px;
+			color: blue;
+		}		
+		#modal-close:hover {
+			color: black;
+			text-decoration: underline;
+			cursor: pointer;
+		}
+		
+	</style>
+	
+	<script>
+		function showModal() {
+			var modal = "<div id='modal'><div id='modal-content'>";
+			modal += "<a id='modal-close'>Close This</a></div></div>";
+			$("body").append(modal);
+			$("#modal").fadeIn(1000);
+		}
+		$(window).load( function() { 
+			showModal(); 
+			$("#modal-close").click(function() {
+				$("#modal").fadeOut(500);
+			});			
+		});
+	</script>
