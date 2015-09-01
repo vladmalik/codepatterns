@@ -1,26 +1,36 @@
-// Supports multiple targets
+// This assumes elements are on the page and page is loaded. You should run this on windows.load or when the element is inserted on the page; Target specific smaller elements instead of large containers.
 
-var targetY = []; // List targets in array e.g., ["#my-element"]
-var isActivated = []; // Leave blank
-var scrollY;
-var windowHeight = $(window).height();
-var targetSensitivity = 300; // Target has to scroll 300px into view
-var scrollSensitivity = 200; // Check every 200 ms
+(function($) {
 
-$(window).load(function () {
-	targetY[0] = Math.ceil($(targetY[0]).offset().top); // Get rendered position of first target
-});	
+	$.fn.doWhenY = function(options) {
+		
+        var defaultOptions = $.extend({
+            footerOffset : 0 // In case there is a fixed position footer covering some of the screen.
+        }, options );		
+		
+		this.each(function() {
+		
+			var targetY = Math.ceil($(this).offset().top); // Position of element on the page
+			var scrollY = $(document).scrollTop(); // Current scroll position
+			var windowHeight = $(window).height(); // Window height
+			var scrollSensitivity = 200; // Check every 200 ms
+			var triggerTheshold = windowHeight*0.75; // Object has to scroll past the bottom 25% of the screen
+			
+			$(window).resize(function() {
+				windowHeight = $(window).height();
+				triggerTheshold = windowHeight*0.75;
+			});			
 
-var atTargetY = setInterval(function() {
-	scrollY = $(document).scrollTop(); // refresh scroll position
-	windowHeight = $(window).height();
-	
-	// Listen for first target (repeat this block with target[1]... for other targets)
-	if(scrollY + windowHeight-targetSensitivity > 	targetY[0] && isActivated[0]!=1) {
-	  // doStuff();
-	  isActivated[0]=1;
+			var atTargetY = setInterval(function() {
+				scrollY = $(document).scrollTop(); // refresh scroll position
+				if(scrollY + triggerTheshold - defaultOptions.footerOffset > targetY) {
+					alert("Target reached");
+					clearInterval(atTargetY);
+				}
+			}, scrollSensitivity);
+
+		});
+
 	}
 	
-	// stop listening once all goals reached
-	if(isActivated.length == targetY.length) clearInterval(atTargetY);
-}, scrollSensitivity);
+})(jQuery);
