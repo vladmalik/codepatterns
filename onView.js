@@ -5,7 +5,8 @@
 	$.fn.onView = function(callback, options) {
 		
         var defaultOptions = $.extend({
-            footerOffset : 0 // In case there is a fixed position footer covering some of the screen.
+            footerOffset : 0, // In case there is a fixed position footer covering some of the screen.
+            bottomOffset : 25 // Has to scroll this % into view (set to 0 if you want it to trigger just before it's in view)
         }, options );		
 		
 		this.each(function() {
@@ -14,11 +15,11 @@
 			var scrollY = $(document).scrollTop(); // Current scroll position
 			var windowHeight = $(window).height(); // Window height
 			var scrollSensitivity = 200; // Check every 200 ms
-			var triggerTheshold = windowHeight*0.75; // Object has to scroll past the bottom 25% of the screen
+			var triggerTheshold = windowHeight*(100-bottomOffset)/100; // Object has to scroll this much into view
 			
 			$(window).resize(function() {
 				windowHeight = $(window).height();
-				triggerTheshold = windowHeight*0.75;
+				triggerTheshold = windowHeight*(100-bottomOffset)/100;
 			});			
 
 			var atTargetY = setInterval(function() {
