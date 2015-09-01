@@ -2,7 +2,7 @@
 
 (function($) {
 
-	$.fn.doWhenY = function(options) {
+	$.fn.onView = function(callback, options) {
 		
         var defaultOptions = $.extend({
             footerOffset : 0 // In case there is a fixed position footer covering some of the screen.
@@ -24,7 +24,7 @@
 			var atTargetY = setInterval(function() {
 				scrollY = $(document).scrollTop(); // refresh scroll position
 				if(scrollY + triggerTheshold - defaultOptions.footerOffset > targetY) {
-					alert("Target reached");
+					if(typeof(callback) == "function") callback();
 					clearInterval(atTargetY);
 				}
 			}, scrollSensitivity);
