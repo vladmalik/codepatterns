@@ -1,9 +1,10 @@
 var js = document.createElement("script");
-js.scr = "http://...";
-var head = document.getElementById("head");
+js.src = "http://";
+var head = document.getElementsByTagName("head")[0];
 head.appendChild(js);
 
 var css = document.createElement("link");
 css.rel = "stylesheet";
-css.rel = "http://vladmalik.com/...";
-head.appendChild(js);
+css.type = "text/css";
+css.href = "http://";
+head.appendChild(css);  
