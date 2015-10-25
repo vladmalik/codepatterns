@@ -26,6 +26,14 @@
 		background: red; height:200px; width: 100%; margin-bottom: 500px
 	}
 	
+	#target3 {
+		height: 800px;
+	}
+	
+	#target5 {
+		height: 400px;
+	}
+	
 	#target6 {
 		margin-bottom: 0;
 	}
@@ -98,15 +106,15 @@ $(window).load(function () {
 						&&
 						(
 							(   
-								(b > targets[a].targetTop + windowHeight*0.4)  // Top of target scrolls 40% into view from bottom of window
+								(b > targets[a].targetTop + windowHeight*0.3)  // Top of target scrolls 40% into view from bottom of window
 								||     
-								(targets[a].targetTop + windowHeight*0.4 > documentHeight && b > targets[a].targetTop + targets[a].targetHeight*0.5) // If top of target is too close to bottom to scroll into view, ensure it scrolls at least half its height into view
+								(targets[a].targetTop + windowHeight*0.3 > documentHeight && b > targets[a].targetTop + targets[a].targetHeight*0.5) // If top of target is too close to bottom to scroll into view, ensure it scrolls at least half its height into view
 							)   
 							&&   
 							(   
-								targets[a].targetBottom > b - windowHeight*0.7 // Bottom of target is within top 30% of window
+								targets[a].targetBottom > b - windowHeight*0.8 // Bottom of target is within top 30% of window
 								||
-								(targets[a].targetBottom - windowHeight*0.3 < 0 && b-windowHeight < targets[a].targetHeight*0.3)// Target is above fold and too high to scroll down, ensure at least 30% of it is showing
+								(targets[a].targetBottom - windowHeight*0.2 < 0 && b-windowHeight < targets[a].targetHeight*0.3)// Target is above fold and too high to scroll down, ensure at least 30% of it is showing
 							)
 						)
 					) {
