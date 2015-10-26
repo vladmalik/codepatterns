@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>	
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
 		<div id="target1"></div>
@@ -82,11 +81,15 @@ $(window).load(function () {
 			targets[i].targetHeight = Math.ceil(target.height());
 			targets[i].targetBottom =  targets[i].targetTop + targets[i].targetHeight;
 			targets[i].triggered = 0;	
+			
+			//////// FOR DEBUG /////////
 			(function(m) {
 				target.click(function(){
 					alert([y, windowHeight, targets[m].targetTop, targets[m].triggered]);
 				});	
 			})(i);
+			///////////////////////////////
+			
 		} else {
 			targets[i].triggered = 1; // If target doesn't exist, mark it as triggered in order to skip it
 			triggeredCount++;
@@ -198,7 +201,7 @@ $(window).resize(function() {
 });
 
 $(window).on('gesturechange', function(){ 
-	alert();	
+	// Mobile support iffy due to zoom	
 });
 
 </script>
