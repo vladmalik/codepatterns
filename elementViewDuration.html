@@ -83,7 +83,7 @@ $(window).load(function () {
 			targets[i].triggered = 0;	
 			(function(m) {
 				target.click(function(){
-					alert([y, windowHeight, targets[m].targetTop, targets[m].triggered]);
+					alert([y, windowHeight, targets[m].targetTop, targets[m].targetHeight, targets[m].triggered]);
 				});	
 			})(i);
 		} else {
