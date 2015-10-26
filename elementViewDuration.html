@@ -192,6 +192,21 @@ $(window).load(function () {
 
 });
 
-$(window).resize(function() { windowHeight = $(window).height() } ); // refresh window height
+$(window).resize(function() { 
+	alert();
+	windowHeight = $(window).height() 
+	documentHeight = $(document).height(); // Get height of entire page
+	
+	// Reinitialize targets (in case caused by zoom on mobile)
+	for(i=0; i<targets.length; i++) {
+		var target = $(targets[i].selector);
+		if(target.length > 0) {
+			targets[i].targetTop = Math.ceil(target.offset().top); 
+			targets[i].targetHeight = Math.ceil(target.height());
+			targets[i].targetBottom =  targets[i].targetTop + targets[i].targetHeight;
+		}
+	}
+	
+} ); // refresh window height
 
 </script>
