@@ -87,6 +87,10 @@ $(window).load(function () {
 		}
 	}
 	
+	$(targets[a].selector).click(function(){
+		alert([y, windowHeight, targets[a].targetTop], targets[a].triggered]);
+	});
+	
 	var updateView = setInterval(function() {
 	
   		scrollY = $(document).scrollTop(); // refresh scroll position		
