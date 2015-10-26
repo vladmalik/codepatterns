@@ -19,7 +19,7 @@
 		font-size: 200%;
 		color: white;			
 		line-height: 200px;
-		text-align: center;		
+		text-align: center;
 	}
 	
 	div {
@@ -83,7 +83,7 @@ $(window).load(function () {
 			targets[i].triggered = 0;	
 			(function(m) {
 				target.click(function(){
-					alert([y, windowHeight, targets[m].targetTop, targets[m].targetHeight, targets[m].triggered]);
+					alert([y, windowHeight, targets[m].targetTop, targets[m].triggered]);
 				});	
 			})(i);
 		} else {
@@ -193,10 +193,12 @@ $(window).load(function () {
 });
 
 $(window).resize(function() { 
+	windowHeight = $(window).height();  // refresh window height
+});
+
+$(window).on('gesturechange', function(e){ 
 	alert();
-	windowHeight = $(window).height() 
 	documentHeight = $(document).height(); // Get height of entire page
-	
 	// Reinitialize targets (in case caused by zoom on mobile)
 	for(i=0; i<targets.length; i++) {
 		var target = $(targets[i].selector);
@@ -205,8 +207,7 @@ $(window).resize(function() {
 			targets[i].targetHeight = Math.ceil(target.height());
 			targets[i].targetBottom =  targets[i].targetTop + targets[i].targetHeight;
 		}
-	}
-	
-} ); // refresh window height
+	}	
+});
 
 </script>
