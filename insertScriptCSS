@@ -1,10 +1,9 @@
 var js = document.createElement("script");
-js.src = "http://";
-var head = document.getElementsByTagName("head")[0];
-head.appendChild(js);
+js.setAttribute = ("src", "http://");
+document.head.appendChild(js);
 
 var css = document.createElement("link");
-css.rel = "stylesheet";
-css.type = "text/css";
-css.href = "http://";
-head.appendChild(css);  
+css.setAttribute("rel", "stylesheet";
+css.setAttribute("type", "text/css";
+css.setAttribute("href", "http://";
+document.head.appendChild(css);
