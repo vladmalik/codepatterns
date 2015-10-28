@@ -1,9 +1,9 @@
 var js = document.createElement("script");
-js.setAttribute = ("src", "http://");
+js.setAttribute("src", "http://");
 document.head.appendChild(js);
 
 var css = document.createElement("link");
-css.setAttribute("rel", "stylesheet";
-css.setAttribute("type", "text/css";
-css.setAttribute("href", "http://";
+css.setAttribute("rel", "stylesheet");
+css.setAttribute("type", "text/css");
+css.setAttribute("href", "http://");
 document.head.appendChild(css);
