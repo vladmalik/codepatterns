@@ -1,0 +1,8 @@
+Credit: http://www.codeproject.com/Tips/719517/Add-Delimiters-to-Numbers-in-JavaScript-Using-Rege
+
+function formatNumber(rawNumber, decimal, delimiter) {
+   var temp = parseFloat(rawNumber).toFixed(decimal);
+   var partArray = temp.toString().split("."); 
+   partArray[0] = partArray[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, delimiter); 
+   return partArray.join("."); 
+}
