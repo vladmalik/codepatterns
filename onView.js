@@ -1,5 +1,8 @@
 // This assumes elements are on the page and page is loaded. You should run this on windows.load or when the element is inserted on the page; Target specific smaller elements instead of large containers.
 
+//There is a more complex Attention Tracking template at https://github.com/vladmalik/codepatterns/blob/master/elementViewDuration.html
+//It combines "on view" and "on duration" tracking for more complex scenarios.
+
 (function($) {
 
 	$.fn.onView = function(callback, options) {
