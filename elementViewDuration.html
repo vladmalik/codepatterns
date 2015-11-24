@@ -80,16 +80,7 @@ $(window).load(function () {
 			targets[i].targetTop = Math.ceil(target.offset().top); 
 			targets[i].targetHeight = Math.ceil(target.height());
 			targets[i].targetBottom =  targets[i].targetTop + targets[i].targetHeight;
-			targets[i].triggered = 0;	
-			
-			//////// FOR DEBUG /////////
-			(function(m) {
-				target.click(function(){
-					alert([y, windowHeight, targets[m].targetTop, targets[m].triggered]);
-				});	
-			})(i);
-			///////////////////////////////
-			
+			targets[i].triggered = 0;
 		} else {
 			targets[i].triggered = 1; // If target doesn't exist, mark it as triggered in order to skip it
 			triggeredCount++;
@@ -200,8 +191,6 @@ $(window).resize(function() {
 	windowHeight = $(window).height();  // refresh window height
 });
 
-$(window).on('gesturechange', function(){ 
-	// Mobile support iffy due to zoom	
-});
+// Mobile support iffy due to zoom
 
 </script>
