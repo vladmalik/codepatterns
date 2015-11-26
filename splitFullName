@@ -1,6 +1,9 @@
-				fullName.change(function(){
-					var fullNameText = $(this).val();
-					firstName.val(fullNameText.split(" ")[0]);
-					lastName.val(fullNameText.split(/ (.+)/)[1]);
-				});
-				// In case of default: fullName.val((firstName.val() + " " + lastName.val()).trim());
+var fullName = $("#fullname");
+var firstName = $("#fname");
+var lastName = $("#lname");  
+fullName.change(function(){
+var fullNameText = $(this).val();
+firstName.val(fullNameText.split(" ")[0]);
+lastName.val(fullNameText.split(/ (.+)/)[1]);
+});
+fullName.val((firstName.val() + " " + lastName.val()).trim()); // In case names are prepopulated
