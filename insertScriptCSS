@@ -1,6 +1,7 @@
 var js = document.createElement("script");
 js.setAttribute("src", "http://");
-document.head.appendChild(js);
+var doc = document.head || document.getElementsByTagName("head")[0];
+doc.appendChild(js);
 
 var css = document.createElement("link");
 css.setAttribute("rel", "stylesheet");
